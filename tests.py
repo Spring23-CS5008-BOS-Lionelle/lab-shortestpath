@@ -25,9 +25,12 @@ def test_large():
  
 
 
-def run_timed_test(N: int):
+def run_timed_test(N: int, mostly_connected: bool = False):
     """Runs a timed test on a graph of N nodes"""
-    test_graph = create_an_N_test_graph_smaller(N)
+    if mostly_connected:
+        test_graph = create_an_N_test_graph(N)
+    else:
+        test_graph = create_an_N_test_graph_smaller(N)
     print('Testing graph with', N, 'nodes')
     print('Dijkstra\'s algorithm')
     print(timeit.timeit(lambda: shortest_path_dijkstra(test_graph, '0', str(N - 1)), number=1))

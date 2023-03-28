@@ -33,19 +33,18 @@ def shortest_path_dijkstra_heap(graph, start, goal) -> float:
     return dist[goal]
 
 def minDistance(dist, sptSet, vertices) -> int:
+    """Returns the node with the smallest distance index.
+    """
+    # Initialize minimum distance for next node
+    min = sys.maxsize
+    min_index = vertices[0]
  
-        # Initialize minimum distance for next node
-        min = sys.maxsize
-        min_index = vertices[0]
+    for u in vertices:
+        if dist[u] < min and sptSet[u] == False:
+            min = dist[u]
+            min_index = u
  
-        # Search not nearest vertex not in the
-        # shortest path tree
-        for u in vertices:
-            if dist[u] < min and sptSet[u] == False:
-                min = dist[u]
-                min_index = u
- 
-        return min_index
+    return min_index
 
 def shortest_path_dijkstra(graph, start, goal) -> float:
     """Runs djikstra's algorithm to find the shortest path from start to goal.
