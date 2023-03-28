@@ -29,7 +29,7 @@ def create_an_N_test_graph(N: int, min=1, max=1) -> 'graph':
     return graph(nodes, edges)
 
 def create_an_N_test_graph_smaller(N: int, min=1, max=1) -> 'graph':
-    """Creates an undirected graph of N vertices and N-1 edges"""
+    """Creates an undirected graph of N vertices and 2*N-1 edges"""
     nodes = [str(i) for i in range(N)]
     edges = []
     for i in range(N - 1):
